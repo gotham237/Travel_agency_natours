@@ -10,7 +10,7 @@ const tourSchema = new mongoose.Schema(
       unique: true,
       trim: true,
       maxlength: [40, 'a tour name must have less or equal than 40 characters'],
-      minlength: [10, 'a tour name must have more or equal than 10 characters'],
+      minlength: [10, 'a tour name must have more or equal than 10 characters']
     },
     slug: {
       type: String
@@ -79,7 +79,31 @@ const tourSchema = new mongoose.Schema(
     secretTour: {
       type: Boolean,
       default: false
-    }
+    },
+    startLocation: {
+      // GeoJson
+      type: {
+        type: String,
+        default: 'Point',
+        enum: ['Point']
+      },
+      coordinates: [Number],
+      address: String,
+      description: String
+    },
+    locations: [
+      {
+        type: {
+          type: String,
+          default: 'Point',
+          enum: ['Point']
+        },
+        coordinates: [Number],
+        address: String,
+        description: String,
+        day: Number
+      }
+    ]
   },
   {
     toJSON: { virtuals: true },
