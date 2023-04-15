@@ -1,7 +1,10 @@
+const cors = require('cors');
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
+const cookieParser = require('cookie-parser');
+
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRoutes');
@@ -28,11 +31,13 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 app.use(express.json());
+app.use(cookieParser());
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  //console.log(req.headers);
+  console.log(req.cookies);
   next();
 });
+app.use(cors());
 
 // 3) ROUTES
 app.use('/', viewRouter);
