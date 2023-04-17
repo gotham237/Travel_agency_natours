@@ -32,6 +32,7 @@ const limiter = rateLimit({
 app.use('/api', limiter);
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   console.log(req.cookies);
