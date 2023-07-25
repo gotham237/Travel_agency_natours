@@ -9,7 +9,8 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     env: {
-      host: process.env.BASE_URL
+      host: process.env.BASE_URL,
+      default_password: process.env.DEFAULT_PASSWORD
     }
   }
 });

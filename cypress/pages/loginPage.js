@@ -15,7 +15,6 @@ export class LoginPage {
   }
 
   checkIfSuccessfull() {
-    //this.elements.alert().contains('Logged in successfully!');
     this.elements.alert().should('contain.text', 'Logged in successfully!');
   }
 }
