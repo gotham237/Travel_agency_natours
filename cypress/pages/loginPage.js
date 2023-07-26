@@ -5,17 +5,23 @@ export class LoginPage {
     emailInput: () => cy.get('#email'),
     passwordInput: () => cy.get('#password'),
     loginBtn: () => cy.contains('Login'),
+    alert: () => cy.get('.alert')
   };
 
-  login() {
-    this.elements.emailInput().type('test@gmail.com');
-    this.elements.passwordInput().type('test1234');
+  login(email, password) {
+    this.elements.emailInput().type(email);
+    this.elements.passwordInput().type(password);
     this.elements.loginBtn().click();
-    cy.location('pathname').should('eq', '/');
+    //this.elements.alert().should('be.visible');
   }
 
-  checkIfSuccessfull() {
-    this.elements.alert().should('contain.text', 'Logged in successfully!');
+  checkMessage(cls, email) {
+    this.elements
+      .alert()
+      .should('have.class', cls)
+      .and('contain', email);
+    cy.wait(1000);
+    this.elements.alert().should('not.exist');
   }
 }
 

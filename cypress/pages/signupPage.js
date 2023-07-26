@@ -8,7 +8,8 @@ class Signup {
       cy
         .get('button.btn')
         .contains('Sign up')
-        .click()
+        .click(),
+    alert: () => cy.get('.alert')
   };
 
   signup(fullName, email, pass, passConfirm) {
@@ -17,7 +18,15 @@ class Signup {
     this.elements.password().type(pass);
     this.elements.passwordConfirm().type(passConfirm);
     this.elements.signupBtn().click();
-    cy.location('pathname').should('eq', '/');
+  }
+
+  checkMessage(cls, email) {
+    this.elements
+      .alert()
+      .should('have.class', cls)
+      .and('contain', email);
+    cy.wait(1000);
+    this.elements.alert().should('not.exist');
   }
 }
 
