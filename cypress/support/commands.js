@@ -29,4 +29,14 @@ beforeEach(function() {
   cy.log('Log before every spec file!');
 });
 
+Cypress.Commands.add('createRandomEmail', () => {
+  const letters = 'ABCDEFGHIJKLMNNOPRSTUWXYZabcdefghijklmnoprstuwxyz';
+  let email = '';
+  for (let i = 0; i < 5; i++) {
+    email += letters.charAt(Math.floor(Math.random() * letters.length));
+  }
+  email += '@gmail.com';
+  return email;
+});
+
 

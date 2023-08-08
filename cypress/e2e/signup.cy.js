@@ -6,13 +6,13 @@ beforeEach(() => {
   cy.visit(Cypress.env('host'));
 });
 
-describe('Signup', () => {
+describe('SIGNUP', () => {
   it('user SUCCESSFULLY signs up', () => {
     //cy.deleteUser();
     header.clickOnSignup();
     signupPage.signup(
-      'szym',
-      'test101@gmail.com',
+      'test',
+      createRandomEmail(),
       Cypress.env('default_password'),
       Cypress.env('default_password')
     );
@@ -20,7 +20,7 @@ describe('Signup', () => {
     cy.location('pathname').should('eq', '/');
   });
 
-  it.only('user with this email ALREADY EXISTS', () => {
+  it('user with this email ALREADY EXISTS', () => {
     header.clickOnSignup();
     signupPage.signup(
       'test',
@@ -31,3 +31,14 @@ describe('Signup', () => {
     signupPage.checkMessage('alert--error', 'test@gmail.com');
   });
 });
+
+function createRandomEmail() {
+  let email = '';
+  const letters = 'ABCDEFGHIJKLMNNOPRSTUWXYZabcdefghijklmnoprstuwxyz';
+  for (let i = 0; i < 5; i++) {
+    email += letters.charAt(Math.floor(Math.random() * letters.length));
+  }
+  email += '@gmail.com';
+  // console.log(email);
+  return email;
+}

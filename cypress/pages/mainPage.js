@@ -1,10 +1,9 @@
 class MainPage {
   elements = {
     cards: () => cy.get('.card')
-    
   };
 
-  countNumOfCards() {
+  getNumOfCards() {
     return this.elements.cards().its("length");
   }
 
@@ -16,6 +15,9 @@ class MainPage {
     });
   }
 
+  getCardAndClick(num) {
+    this.elements.cards().eq(num).contains('Details').click();
+  }
 }
 
 module.exports = new MainPage();

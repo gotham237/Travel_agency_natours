@@ -1,10 +1,15 @@
 class Card {
   elements = {
-    bookTourBtn: () => cy.contains('Log in to book tour'),
-    tourName: () => cy.get('.heading-primary')
+    bookTourBtnToLogin: () => cy.contains('Log in to book tour'),
+    tourName: () => cy.get('.heading-primary'),
+    bookTourBtn: () => cy.get('button').contains('Book tour now!')
   };
 
-  clickOnBookTour() {
+  clickOnBookTourToLoginBtn() {
+    this.elements.bookTourBtnToLogin().click();
+  }
+
+  clickOnBookTourBtn() {
     this.elements.bookTourBtn().click();
   }
 
@@ -13,8 +18,8 @@ class Card {
   }
 
   getTourNameAsString() {
-    return this.getTourName().then((tourName) => tourName.trim());
-  }  
+    return this.getTourName().then(tourName => tourName.trim());
+  }
 
   // I am getting name of the tour e.g. 'The Sports Lover Tour' and perform some actions to have 'the-sports-lover'
   // and check if the location is correct
