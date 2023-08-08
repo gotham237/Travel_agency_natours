@@ -6,7 +6,7 @@ import header from '../pages/header';
 import signupPage from '../pages/signupPage';
 
 beforeEach(function() {
-  cy.visit(Cypress.env('host'));
+  cy.visit('/');
 });
 
 describe('MAIN PAGE and USER JOURNEY', () => {

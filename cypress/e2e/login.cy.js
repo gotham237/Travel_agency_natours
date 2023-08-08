@@ -3,7 +3,7 @@ import header from '../pages/header';
 import loginPage from '../pages/loginPage';
 
 beforeEach(function() {
-  cy.visit(Cypress.env('host'));
+  cy.visit('/');
 });
 
 describe('User login', () => {
@@ -23,5 +23,4 @@ describe('User login', () => {
       .should('have.class', 'alert--error')
       .and('contain', 'Incorrect email or password');
   });
-
 });

@@ -3,7 +3,7 @@ import header from '../pages/header';
 import signupPage from '../pages/signupPage';
 
 beforeEach(() => {
-  cy.visit(Cypress.env('host'));
+  cy.visit('/');
 });
 
 describe('SIGNUP', () => {
