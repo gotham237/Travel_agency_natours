@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: app
+    restart: always
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - /home/node/app/node_modules
+      - .:/home/node/app
+    depends_on:
+      - mongodb
+    networks:
+      - express-mongo
+  mongodb:
+    container_name: mongodb
+    restart: always
+    image: mongo:latest
+    volumes:
+      - ./data:/data/db
+    networks:
+      - express-mongo
+    expose:
+      - 27017
+
+networks:
+  express-mongo: 
