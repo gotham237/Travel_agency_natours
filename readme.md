@@ -36,9 +36,11 @@ Built with modern technologies: Node.js, Express, MongoDb, mongoose. Created tes
 # Preview
 Home Page:
 https://github.com/gotham237/Travel_agency_natours/assets/86183687/86c872e4-4c68-4b99-9172-7bb6523af993
+![image](https://github.com/gotham237/Travel_agency_natours/assets/86183687/3255f187-f4f3-435f-bd44-74900d861f62)
 
 Tour Details:
 https://github.com/gotham237/Travel_agency_natours/assets/86183687/ecfd5a91-f046-4858-95ca-6260bebf4939
+![image](https://github.com/gotham237/Travel_agency_natours/assets/86183687/05f83e2d-66fb-43f8-8d88-14b2c8e61df6)
 
 Stripe Payment:
 ![image](https://github.com/gotham237/Travel_agency_natours/assets/86183687/c281250f-6fbd-4632-9194-3f47309ec573)
